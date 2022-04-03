@@ -9,7 +9,7 @@ def create_route_map(ips: [str], url: str):
     if url[0].isdigit():
         url_name = ""  # ip address
     else:
-        url_name = re.search("[a-z]*\.?([a-zA-Z]+)\.[a-z]", url).group(1)  # url address
+        url_name = re.search("[a-z]*\.([a-zA-Z]+)\.[a-z] | ([a-zA-Z]+)\.[a-z]", url).group(1)  # url address
     loc = []
     createdmap = False
     for id_, ip in enumerate(ips):
